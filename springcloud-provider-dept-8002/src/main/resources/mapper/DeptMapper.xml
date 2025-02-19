@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luo.mapper.DeptMapper">
+
+    <insert id="addDept" parameterType="com.luo.pojo.Dept">
+        INSERT INTO dept(name, db_source)
+        VALUES (#{name}, DATABASE())
+    </insert>
+
+    <select id="queryById" resultType="com.luo.pojo.Dept">
+        select
+            *
+        from dept
+        where dept_no = #{id}
+    </select>
+
+    <select id="queryAll" resultType="com.luo.pojo.Dept">
+        select
+            *
+        from dept
+    </select>
+</mapper>
